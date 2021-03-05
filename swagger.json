@@ -1,0 +1,377 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Servidor Node Biblioteca",
+        "description": "Servidor Node para API sencilla de Biblioteca",
+        "version": "1.0.1",
+        "termsOfService": "Servidor de pruebas con Node",
+        "contact": {
+            "name": "Yeison Arango Tamayo",
+            "email": "yeisonarango03@gmail.com",
+            "url": "https://portfolio-yarango.netlify.app/"
+        },
+        "license": {
+            "name": "License MIT",
+            "url": "https://es.wikipedia.org/wiki/Licencia_MIT"
+        }
+    },
+    "paths": {
+        "/api/v1/createBook":{
+            "post":{
+                "summary": "Crear Libro",
+                "tags": ["Libros"],
+                "description": "Crea un libro en el sistema",
+                "requestBody":{
+                    "description": "Datos del libro",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/createBook"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se creó el libro"
+                    },
+                    "401":{
+                        "description": "No se logró crear el libro, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/updateBook":{
+            "put":{
+                "summary": "Actualizar un libro",
+                "tags": ["Libros"],
+                "description": "Actualiza los datos de un libro",
+                "requestBody":{
+                    "description": "Datos del libro",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/updateBook"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se actualizó el libro"
+                    },
+                    "401":{
+                        "description": "No se logró actualizar el libro, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/listBooks":{
+            "get":{
+                "summary": "Listar libros",
+                "tags": ["Libros"],
+                "description": "Muestra los libros en el sistema",
+                "responses": {
+                    "200":{
+                        "description": "Ejecutado"
+                    },
+                    "401":{
+                        "description": "Problemas con la ejecución, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/deleteBook":{
+            "delete":{
+                "summary": "Elimina un libro",
+                "tags": ["Libros"],
+                "description": "Elimna un libro en el sistema",
+                "requestBody":{
+                    "description": "Datos del libro",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/deleteBook"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se eliminó el libro"
+                    },
+                    "401":{
+                        "description": "No se logró eliminar el libro, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/createReader":{
+            "post":{
+                "summary": "Crear Lector",
+                "tags": ["Lectores"],
+                "description": "Crea un lector en el sistema",
+                "requestBody":{
+                    "description": "Datos del lector",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/createReader"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se creó el lector"
+                    },
+                    "401":{
+                        "description": "No se logró crear el lector, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/updateReader":{
+            "put":{
+                "summary": "Actualizar un lector",
+                "tags": ["Lectores"],
+                "description": "Actualiza los datos de un lector",
+                "requestBody":{
+                    "description": "Datos del lector",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/updateReader"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se actualizó el lector"
+                    },
+                    "401":{
+                        "description": "No se logró actualizar el lector, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/listReaders":{
+            "get":{
+                "summary": "Listar lectores",
+                "tags": ["Lectores"],
+                "description": "Muestra los lectores en el sistema",
+                "responses": {
+                    "200":{
+                        "description": "Ejecutado"
+                    },
+                    "401":{
+                        "description": "Problemas con la ejecución, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/deleteReader":{
+            "delete":{
+                "summary": "Elimina un lector",
+                "tags": ["Lectores"],
+                "description": "Elimna un lector en el sistema",
+                "requestBody":{
+                    "description": "Datos del lector",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/deleteReader"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se eliminó el libro"
+                    },
+                    "401":{
+                        "description": "No se logró eliminar el libro, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/listBorrowedBook":{
+            "get":{
+                "summary": "Listar prestamos",
+                "tags": ["Prestamos"],
+                "description": "Muestra los prestamos en el sistema",
+                "responses": {
+                    "200":{
+                        "description": "Ejecutado"
+                    },
+                    "401":{
+                        "description": "Problemas con la ejecución, revisa el log"
+                    }
+                }
+            }
+        },
+        "/api/v1/createBookLend":{
+            "post":{
+                "summary": "Crear un prestamo de un libro",
+                "tags": ["Prestamos"],
+                "description": "Crea un prestamo de un libro en el sistema",
+                "requestBody":{
+                    "description": "Datos del prestamo",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/createBookLend"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Se creó el prestamo"
+                    },
+                    "401":{
+                        "description": "No se logró crear el prestamo, revisa el log"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "createBook":{
+                "type": "object",
+                "required": [
+                    "titulo",
+                    "autor",
+                    "genero",
+                    "isbn"
+                ],
+                "properties": {
+                    "titulo":{
+                        "type": "string"
+                    },
+                    "autor":{
+                        "type": "string"
+                    },
+                    "genero":{
+                        "type": "string"
+                    },
+                    "isbn":{
+                        "type": "number"
+                    }
+                }
+            },
+            "updateBook":{
+                "type": "object",
+                "required": [
+                    "titulo",
+                    "autor",
+                    "genero",
+                    "isbn"
+                ],
+                "properties": {
+                    "titulo":{
+                        "type": "string"
+                    },
+                    "autor":{
+                        "type": "string"
+                    },
+                    "genero":{
+                        "type": "string"
+                    },
+                    "isbn":{
+                        "type": "number"
+                    }
+                }
+            },
+            "deleteBook":{
+                "type": "object",
+                "required": [
+                    "isbn"
+                ],
+                "properties": {
+                    "isbn":{
+                        "type": "number"
+                    }
+                }
+            },
+            "createReader":{
+                "type": "object",
+                "required": [
+                    "nombre",
+                    "cc",
+                    "direccion",
+                    "telefono"
+                ],
+                "properties": {
+                    "nombre":{
+                        "type": "string"
+                    },
+                    "cc":{
+                        "type": "number"
+                    },
+                    "direccion":{
+                        "type": "string"
+                    },
+                    "telefono":{
+                        "type": "number"
+                    }
+                }
+            },
+            "updateReader":{
+                "type": "object",
+                "required": [
+                    "nombre",
+                    "cc",
+                    "direccion",
+                    "telefono"
+                ],
+                "properties": {
+                    "nombre":{
+                        "type": "string"
+                    },
+                    "cc":{
+                        "type": "number"
+                    },
+                    "direccion":{
+                        "type": "string"
+                    },
+                    "telefono":{
+                        "type": "number"
+                    }
+                }
+            },
+            "deleteReader":{
+                "type": "object",
+                "required": [
+                    "cc"
+                ],
+                "properties": {
+                    "cc":{
+                        "type": "number"
+                    }
+                }
+            },
+            "createBookLend":{
+                "type": "object",
+                "required": [
+                    "cc",
+                    "isbn",
+                    "dias"
+                ],
+                "properties": {
+                    "cc":{
+                        "type": "number"
+                    },
+                    "isbn":{
+                        "type": "number"
+                    },
+                    "dias":{
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    }
+}

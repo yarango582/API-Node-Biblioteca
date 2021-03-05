@@ -6,6 +6,6 @@ dotenv.config();
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
-    console.log(`🚀 vamos directo al espacio por el puerto:${PORT}`)
+    console.log(`🚀 vamos directo al espacio por el puerto:${PORT}`);
 });
 

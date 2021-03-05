@@ -6,9 +6,17 @@ export const createReader = async (req, res) => {
 
     try {
 
-        const result = await Lectores.create(datos);
+        const verificaLector = await Lectores.findOne({where:{cc:datos.cc}});
 
-        result?res.status(201).json({message:"Lector creado"}):res.status(201).json({message:"Llena los campos"});
+        if(verificaLector){
+            res.status(401).json({
+                message: "Ya existe un usuario con el documento ingresado"
+            })
+        }else{
+
+            const result = await Lectores.create(datos);
+            result?res.status(201).json({message:"Lector creado"}):res.status(201).json({message:"Llena los campos"});
+        }
         
     } catch (error) {
         res.status(400).json({

@@ -6,7 +6,11 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Prestamos",
+          key: "idLibro"
+        }
       },
       titulo: {
         allowNull: false,
@@ -18,10 +22,6 @@ module.exports = {
       },
       genero: {
         type: Sequelize.STRING
-      },
-      prestado: {
-        type: Sequelize.BOOLEAN,
-        default: false
       },
       isbn: {
         type: Sequelize.BIGINT

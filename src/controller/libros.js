@@ -7,14 +7,21 @@ export const createBook = async (req, res) => {
 
     try {
 
-        const result = await Libros.create(datos);
+        const verificaLibro = await Libros.findOne({where:{isbn:datos.isbn}});
 
-        result?res.status(201).json({message:"Libro creado"}):res.status(201).json({message:"Llena los campos"});
+        if(verificaLibro){
+            res.status(401).json({
+                message: "Ya existe un libro con el codigo ISBN ingresado."
+            });
+        }else{
+            const result = await Libros.create(datos);
+            result?res.status(201).json({message:"Libro creado"}):res.status(201).json({message:"Llena los campos"});
+        }
         
     } catch (error) {
         res.status(400).json({
             message: "Error al ejecutar la consulta"
-        })
+        });
     }
 
 }

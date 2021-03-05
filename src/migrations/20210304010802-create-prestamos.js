@@ -11,7 +11,7 @@ module.exports = {
       fechaPrestamo: {
         type: Sequelize.DATE
       },
-      idLIbro: {
+      idLibro: {
         type: Sequelize.INTEGER,
         references: {
           model: "Libros",

@@ -11,16 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Libros.hasMany(models.Prestamos, {
-        foreignKey: "idLibro",
-      });
+      Libros.belongsToMany(models.Lectores, {
+        as: 'LibrosPrestados',
+        through: "Prestamos",
+        foreignKey: "idLibro"
+      }); 
     }
   };
   Libros.init({
     titulo: DataTypes.STRING,
     autor: DataTypes.STRING,
     genero: DataTypes.STRING,
-    prestado: DataTypes.BOOLEAN,
     isbn: DataTypes.BIGINT
   }, {
     sequelize,

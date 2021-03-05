@@ -9,20 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       titulo: {
-        type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING
       },
       autor: {
-        type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.STRING
       },
       genero: {
-        type: Sequelize.STRING,
-        default: "Genero sin especificar"
+        type: Sequelize.STRING
       },
       prestado: {
         type: Sequelize.BOOLEAN,
         default: false
+      },
+      isbn: {
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,

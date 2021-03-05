@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     titulo: DataTypes.STRING,
     autor: DataTypes.STRING,
     genero: DataTypes.STRING,
-    prestado: DataTypes.BOOLEAN
+    prestado: DataTypes.BOOLEAN,
+    isbn: DataTypes.BIGINT
   }, {
     sequelize,
     modelName: 'Libros',

@@ -9,8 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       fechaPrestamo: {
-        type: Sequelize.DATE,
-        default: Sequelize.NOW
+        type: Sequelize.DATE
       },
       idLIbro: {
         type: Sequelize.INTEGER,

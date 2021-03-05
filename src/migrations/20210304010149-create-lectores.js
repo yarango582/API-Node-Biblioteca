@@ -12,13 +12,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       cc: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       direccion: {
         type: Sequelize.STRING
       },
       telefono: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
       },
       createdAt: {
         allowNull: false,

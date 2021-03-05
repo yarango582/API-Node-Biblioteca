@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   Lectores.init({
     nombre: DataTypes.STRING,
-    cc: DataTypes.INTEGER,
+    cc: DataTypes.BIGINT,
     direccion: DataTypes.STRING,
-    telefono: DataTypes.INTEGER
+    telefono: DataTypes.BIGINT
   }, {
     sequelize,
     modelName: 'Lectores',
